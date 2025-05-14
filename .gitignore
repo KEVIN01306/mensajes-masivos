@@ -1,0 +1,12 @@
+# created by virtualenv automatically
+.venv/Lib
+.venv/
+venv/  # Si por alguna razón lo llamaste diferente
+
+# Archivos de Python generados
+__pycache__/
+*.pyc
+*.pyd
+*.egg-info/
+build/
+dist/
