@@ -1,0 +1,51 @@
+/* PRIMARY */
+.primary-bg {
+    background-color: var(--primary-color);
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.primary-border {
+    border-color: var(--primary-color);
+}
+
+/* DANGEROUS */
+.dangerous-bg {
+    background-color: var(--dangerous-color);
+}
+
+.dangerous-color {
+    color: var(--dangerous-color);
+}
+
+.dangerous-border {
+    border-color: var(--dangerous-color);
+}
+
+/* SUCCES */
+.succes-bg {
+    background-color: var(--succes-color);
+}
+
+.succes-color {
+    color: var(--succes-color);
+}
+
+.succes-border {
+    border-color: var(--succes-color);
+}
+
+/* WHITE */
+.white-bg {
+    background-color: var(--white-color);
+}
+
+.white-color {
+    color: var(--white-color);
+}
+
+.white-border {
+    border-color: var(--white-color);
+}

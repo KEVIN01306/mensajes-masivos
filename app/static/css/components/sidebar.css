@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .content-with-sidebar {
+        margin-left: 0;
+    }
+}

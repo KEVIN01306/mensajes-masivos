@@ -1,0 +1,13 @@
+{% extends 'layouts/layout.html' %}
+{% from 'components/button.component.html' import button_hover %}
+
+{% block title %}Página de Inicio{% endblock %}
+
+
+{% block content %}
+<h1>Bienvenido</h1>
+<p>Este es el contenido principal del sistema.</p>
+{{ button_hover("succes")}}
+{{ button_hover("primary")}}
+{{ button_hover("dangerous")}}
+{% endblock %}
