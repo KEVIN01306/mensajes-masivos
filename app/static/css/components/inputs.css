@@ -28,3 +28,21 @@
     margin-left: 50px;
     color: rgb(128, 128, 128);
 }
+
+/* textare mensaje */
+
+.card-write-mensaje textarea{
+    height: 300px;
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+    transition: all .4s;
+    padding: 5px;
+}
+
+.card-write-mensaje textarea:focus{
+    outline-style: groove;
+    outline-color: var(--succes-color);
+}

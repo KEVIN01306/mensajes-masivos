@@ -7,6 +7,10 @@ def index():
     return render_template('pages/index.page.html')
 
 @public_bp.route('/validacion-data')
-def writeMensajes():
+def validar_mensajes():
     return render_template('pages/validationData.page.html')
+
+@public_bp.route('/mensajes')
+def writeMensajes():
+    return render_template('pages/mensajes.page.html')
 

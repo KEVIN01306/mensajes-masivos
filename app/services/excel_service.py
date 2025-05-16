@@ -24,21 +24,3 @@ def procesar_archivo_excel(file_storage):
 
     except Exception as e:
         raise ValueError(f"Error leyendo Excel: {str(e)}")
-
-
-UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploaded_excels')
-
-def guardar_archivo_local(file_storage):
-    """Guarda el archivo Excel en una carpeta local y devuelve su ruta."""
-    if not os.path.exists(UPLOAD_FOLDER):
-        os.makedirs(UPLOAD_FOLDER)
-
-    nombre_seguro = secure_filename(file_storage.filename)
-
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    nombre_final = f"{timestamp}_{nombre_seguro}"
-
-    ruta_completa = os.path.join(UPLOAD_FOLDER, nombre_final)
-    file_storage.save(ruta_completa)
-
-    return ruta_completa

@@ -16,4 +16,8 @@
 
 
 /* inputs */
-@import 'components/inputs.css'
+@import 'components/inputs.css';
+
+/* tables */
+@import 'components/table.css'
+

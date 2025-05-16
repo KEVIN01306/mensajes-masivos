@@ -1,5 +1,5 @@
 document.getElementById("excel-form").addEventListener("submit", async function (e) {
-    e.preventDefault(); // Evitar envío tradicional
+    e.preventDefault();
 
     const formData = new FormData(this);
 

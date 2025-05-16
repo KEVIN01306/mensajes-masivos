@@ -1,0 +1,31 @@
+{% extends 'layouts/layout.html' %}
+{% from 'components/button.component.html' import button_hover %}
+{% from 'components/navbar.component.html' import navbar %}
+{% from 'components/inputs/inputFile.component.html' import inputFile %}
+
+{% block title %}Cargar mensajes{% endblock %}
+
+
+{% block content %}
+{{ navbar() }}
+<h1>Mensajes</h1>
+<p>Escribe todos los mensajes que neceites</p>
+{% include 'layouts/alerts.html' %}
+<div class="g-2">
+    {{ button_hover(color="succes", content="+", id="addTextareaBtn")}}
+    {{ button_hover(color="warning", content="Eiminar Ultimo", onclick="borrarUltimoMensaje()")}}
+    {{ button_hover(color="dangerous", content="Borrar Todo", onclick="borrarMensajes()")}}
+</div>
+
+<div class="row g-4 p-4 content-mensajes " id="textareaContainer">
+
+</div>
+
+{{ button_hover(color="primary", content="ver", onclick="console.log(mensajes)")}}
+
+
+<script defer src="{{ url_for('static', filename='js/mensajes/mensaje.config.js') }}"></script>
+
+
+
+{% endblock %}

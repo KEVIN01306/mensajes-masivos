@@ -3,7 +3,7 @@
 {% from 'components/navbar.component.html' import navbar %}
 {% from 'components/inputs/inputFile.component.html' import inputFile %}
 
-{% block title %}CArgar mensajes{% endblock %}
+{% block title %}Validar Data{% endblock %}
 
 
 {% block content %}
@@ -18,7 +18,7 @@
 
 <div class="row mt-2">
     <div class="col-8 col-lg-4">
-        {{ button_hover(color="primary",content="Validar",type="submit")}} 
+        {{ button_hover(color="primary",content="Validar",type="submit",onclick="window.location.href = '/mensajes'")}}
     </div>
 </div>
 

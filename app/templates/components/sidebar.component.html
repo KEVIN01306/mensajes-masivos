@@ -1,7 +1,7 @@
 <!-- templates/components/sidebar.html -->
 {% from 'components/button.component.html' import button_hover %}
 
-<div class="d-flex sidebar flex-column flex-shrink-0 p-3 white-bg" id="sidebar" style="width: 250px; height: 100vh;">
+<div class="d-flex sidebar flex-column flex-shrink-0 p-3 white-bg" id="sidebar" style="width: 250px; min-height: 100vh;">
   <a  class="d-flex align-items-center pe-1 mb-3 mb-md-0 me-md-auto text-decoration-none justify-content-between" style="width: 100%;">
     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" style="width: 50px;">
     {{ button_hover(color="dangerous", type="button", id="dinamismo-sidemanu", content="x", onclick="hiddenSideMenu()") }}
@@ -9,7 +9,7 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item white-border">
-      <a href="{{ url_for('public.index') }}" class="nav-link succes-bg white-color  white-border shadow-box" aria-current="page">
+      <a class="nav-link succes-bg white-color  white-border shadow-box" >
         <i class="bi bi-house-door me-2"></i>
         Home
       </a>
@@ -34,16 +34,16 @@
     </li>
   </ul>
   <hr>
-  <div class="dropdown">
-    <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="" width="32" height="32" class="rounded-circle me-2">
-      <strong>Usuario</strong>
+  <div class="">
+    <a href="#" class="nav-link primary-color d-flex align-items-center  text-decoration-none"  id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-journal-code rounded-circle me-2 " width="32" height="32" ></i>
+      <strong>Documentacion</strong>
     </a>
-    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+    <!--<ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
       <li><a class="dropdown-item" href="#">Perfil</a></li>
       <li><a class="dropdown-item" href="#">Configuración</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
-    </ul>
+    </ul>-->
   </div>
 </div>

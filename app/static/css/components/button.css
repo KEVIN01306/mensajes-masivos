@@ -54,3 +54,15 @@ button{
     border: 2px var(--white-color) solid;
     background-color: var(--dangerous-color);
 }
+
+.warning-btn{
+    color: var(--warning-color);
+    border: 2px var(--warning-color) solid;
+    background-color: var(--white-color);
+}
+
+.warning-btn:hover {
+    color: var(--white-color);
+    border: 2px var(--white-color) solid;
+    background-color: var(--warning-color);
+}

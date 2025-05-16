@@ -1,7 +1,7 @@
 {% macro navbar()%}
 <nav class="navbar z-0 bg-body-tertiary">
     <div class="container-fluid">
-        <a class=" text-nav" href="#">Home</a>
+        <a class=" text-nav" href="{{ url_for('public.index') }}" >Home</a>
         <button class="navbar-toggler" id="hamburger" type="button" onclick="showSideMenu()">
             <i class="bi bi-list"></i>
         </button>
