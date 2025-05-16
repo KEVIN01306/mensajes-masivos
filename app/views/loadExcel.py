@@ -1,5 +1,5 @@
 from flask import Blueprint, request, flash ,jsonify
-from services.excel_service import procesar_archivo_excel
+from ..services.excel_service import procesar_archivo_excel
 import pandas as pd
 import numpy as np
 
