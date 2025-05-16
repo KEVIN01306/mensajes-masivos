@@ -1,6 +1,6 @@
 
-{% macro button_hover( color='', type='button') %}
-    <button class="btn-hover {{color}}-btn" type="{{type}}">
-        send
+{% macro button_hover( color='', type='button', id='id', content="send", onclick=None) %}
+    <button class="btn-hover {{color}}-btn" type="{{type}}" id="{{id}}" {% if onclick %} onclick="{{ onclick }}"{% endif %}>
+        {{content}}
     </button>
 {% endmacro %}

@@ -3,7 +3,34 @@
 :root{
     --primary-color: #3e7bd7;
     --dangerous-color: #d73e3e;
-    --succes-color: #2ccb37;
+    --succes-color: #34be3d;
     --white-color: #fff;
 }
 
+body {
+  overflow-x: hidden;
+}
+.contenedor-tabla-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Estilo de la tabla tipo Excel */
+.tabla-estilo-excel {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 800px; /* puedes ajustar este valor si la tabla es más grande */
+}
+
+.tabla-estilo-excel th,
+.tabla-estilo-excel td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* evita que el texto se corte */
+}
+
+.tabla-estilo-excel thead {
+  background-color: #e6f0fa;
+  font-weight: bold;
+}

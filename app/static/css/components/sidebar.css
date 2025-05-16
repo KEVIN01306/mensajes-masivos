@@ -3,16 +3,50 @@ body {
     margin: 0;
 }
 
+.sidebar {
+        transform: translateX(-5%);
+        z-index: 1000000;
+        transition: all 1s;
+}
+
+#dinamismo-sidemanu{
+    display: none;
+}
+
+#hamburger{
+    display: none;
+}
+
+.show {
+    transform: translateX(-5%) !important;
+}
+
+.nav-link{
+    transition: all .5s;
+}
+
+.nav-link:hover{
+    color: #b8b8b8;
+    cursor: pointer;
+}
+
+
 @media (max-width: 768px) {
     .sidebar {
-        transform: translateX(-100%);
+        transform: translateX(-105%);
+        position: absolute;
     }
 
-    .sidebar.show {
-        transform: translateX(0);
-    }
-
+    
     .content-with-sidebar {
         margin-left: 0;
     }
+
+    #dinamismo-sidemanu{
+    display: block;
+    }
+
+    #hamburger{
+        display: block;
+}
 }

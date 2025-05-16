@@ -1,13 +1,27 @@
 {% extends 'layouts/layout.html' %}
 {% from 'components/button.component.html' import button_hover %}
+{% from 'components/navbar.component.html' import navbar %}
+{% from 'components/inputs/inputFile.component.html' import inputFile %}
 
 {% block title %}Página de Inicio{% endblock %}
 
 
 {% block content %}
-<h1>Bienvenido</h1>
-<p>Este es el contenido principal del sistema.</p>
-{{ button_hover("succes")}}
-{{ button_hover("primary")}}
-{{ button_hover("dangerous")}}
+{{ navbar() }}
+<h1>Carga el excel</h1>
+<p>Cuando el excel este cargdo pulsar siguiente</p>
+{% include 'layouts/alerts.html' %}
+<form  id="excel-form" enctype="multipart/form-data">
+<div class="container row d-flex flex-column">
+    <div class="col-12">
+        {{ inputFile(name="archivo-excel")}}
+    </div>
+    <div class="col-8 col-lg-4">
+        {{ button_hover(color="succes",content="Siguiente",type="submit")}} 
+    </div>
+</div>
+</form>
+
+<script defer src="{{ url_for('static', filename='js/request/loadData.js') }}"></script>
+
 {% endblock %}

@@ -9,5 +9,11 @@
 @import 'colors.css';
 
 /* sidebar */
-
 @import 'components/sidebar.css';
+
+/* navbar */
+@import 'components/narbar.css';
+
+
+/* inputs */
+@import 'components/inputs.css'

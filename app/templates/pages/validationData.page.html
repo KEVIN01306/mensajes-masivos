@@ -1,0 +1,28 @@
+{% extends 'layouts/layout.html' %}
+{% from 'components/button.component.html' import button_hover %}
+{% from 'components/navbar.component.html' import navbar %}
+{% from 'components/inputs/inputFile.component.html' import inputFile %}
+
+{% block title %}CArgar mensajes{% endblock %}
+
+
+{% block content %}
+{{ navbar() }}
+<h1>Revision</h1>
+<p>Puedes revisar la data cargada y verificar si todo esta bien</p>
+{% include 'layouts/alerts.html' %}
+
+<div class="shadow-box">
+  <div id="tabla-excel-container" class="contenedor-tabla-scroll"></div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-8 col-lg-4">
+        {{ button_hover(color="primary",content="Validar",type="submit")}} 
+    </div>
+</div>
+
+<script defer src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
+
+
+{% endblock %}

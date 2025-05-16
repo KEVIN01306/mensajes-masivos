@@ -1,0 +1,8 @@
+{% macro inputFile(name="") %}
+    <div class="file-upload p-2 ">
+        <label for="file-input" class="file-upload-button succes-bg white-color  white-border shadow-box">Seleccionar Archivo</label>
+        <input type="file" id="file-input" class="file-input" name="{{name}}">
+        <span id="file-name" ></span>
+    </div>
+    <script defer src="{{ url_for('static', filename='js/inputs/inputFileName.js') }}"></script>
+{% endmacro %}

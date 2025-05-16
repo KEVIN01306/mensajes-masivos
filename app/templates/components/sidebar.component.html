@@ -1,39 +1,41 @@
 <!-- templates/components/sidebar.html -->
-<div class="d-flex sidebar flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 250px; height: 100vh;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-    <span class="fs-4">Panel</span>
+{% from 'components/button.component.html' import button_hover %}
+
+<div class="d-flex sidebar flex-column flex-shrink-0 p-3 white-bg" id="sidebar" style="width: 250px; height: 100vh;">
+  <a  class="d-flex align-items-center pe-1 mb-3 mb-md-0 me-md-auto text-decoration-none justify-content-between" style="width: 100%;">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="" style="width: 50px;">
+    {{ button_hover(color="dangerous", type="button", id="dinamismo-sidemanu", content="x", onclick="hiddenSideMenu()") }}
   </a>
   <hr>
   <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="/dashboard" class="nav-link active" aria-current="page">
+    <li class="nav-item white-border">
+      <a href="{{ url_for('public.index') }}" class="nav-link succes-bg white-color  white-border shadow-box" aria-current="page">
         <i class="bi bi-house-door me-2"></i>
-        Dashboard
+        Home
       </a>
     </li>
     <li>
-      <a href="/mensajes" class="nav-link text-white">
-        <i class="bi bi-chat-dots me-2"></i>
+      <a class="nav-link  primary-bg white-color  white-border shadow-box">
+        <i class="bi bi-chat-dots me-2 "></i>
         Mensajes
       </a>
     </li>
     <li>
-      <a href="/usuarios" class="nav-link text-white">
-        <i class="bi bi-people me-2"></i>
-        Usuarios
+      <a class="nav-link ">
+        <i class="bi bi-gear me-2"></i>
+        Ajustes
       </a>
     </li>
     <li>
-      <a href="/ajustes" class="nav-link text-white">
-        <i class="bi bi-gear me-2"></i>
-        Ajustes
+      <a class="nav-link ">
+        <i class="bi bi-people me-2"></i>
+        Reporte
       </a>
     </li>
   </ul>
   <hr>
   <div class="dropdown">
-    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong>Usuario</strong>
     </a>

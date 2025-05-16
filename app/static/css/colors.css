@@ -8,7 +8,7 @@
 }
 
 .primary-border {
-    border-color: var(--primary-color);
+    border: var(--primary-color);
 }
 
 /* DANGEROUS */
@@ -21,7 +21,7 @@
 }
 
 .dangerous-border {
-    border-color: var(--dangerous-color);
+    border: var(--dangerous-color);
 }
 
 /* SUCCES */
@@ -34,7 +34,7 @@
 }
 
 .succes-border {
-    border-color: var(--succes-color);
+    border: var(--succes-color);
 }
 
 /* WHITE */
@@ -47,5 +47,10 @@
 }
 
 .white-border {
-    border-color: var(--white-color);
+    border: 1px var(--white-color) solid;
+}
+
+/* box shadow*/
+.shadow-box{
+    box-shadow: 0px 2px 5px rgb(159, 159, 159);
 }
