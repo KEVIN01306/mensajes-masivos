@@ -1,6 +1,7 @@
 const data = JSON.parse(localStorage.getItem("excelData"));
 const primeraHoja = data ? Object.keys(data)[0] : null;
 const registros = primeraHoja ? data[primeraHoja] : null;
+console.log(registros)
 
 if (registros && registros.length > 0) {
   const headers = Object.keys(registros[0]);

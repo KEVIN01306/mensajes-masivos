@@ -14,3 +14,6 @@ def validar_mensajes():
 def writeMensajes():
     return render_template('pages/mensajes.page.html')
 
+@public_bp.route('/configuracionFinal')
+def configuracionFinal():
+    return render_template('pages/configfinal.page.html')

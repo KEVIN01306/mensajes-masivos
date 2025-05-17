@@ -19,5 +19,10 @@
 @import 'components/inputs.css';
 
 /* tables */
-@import 'components/table.css'
+@import 'components/table.css';
 
+/* card laber */ 
+@import 'components/cardLabel.css';
+
+/* mensajes */
+@import 'components/mensaje.css';

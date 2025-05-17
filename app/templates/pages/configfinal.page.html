@@ -1,0 +1,94 @@
+{% extends 'layouts/layout.html' %}
+{% from 'components/button.component.html' import button_hover %}
+{% from 'components/navbar.component.html' import navbar %}
+{% from 'components/inputs/inputFile.component.html' import inputFile %}
+{% from 'components/cardLabel.component.html' import cardLabel %}
+
+{% block title %}Validar Data{% endblock %}
+
+
+{% block content %}
+{{ navbar() }}
+<h1>Configuracion</h1>
+<p>Verifica los datos y precionar empezar cuando estes listo</p>
+{% include 'layouts/alerts.html' %}
+<div class="row m-2">
+    <div class="col-12 m-2">
+        {{cardLabel(content="Revision Mensajes")}}
+    </div>
+    <div class="col-12 col-xl-4 d-flex justify-content-center">
+        <div class="mensaje-contenedor">
+            <div class="mensaje">
+                <div class="mensaje-contenido">
+                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
+                <div class="mensaje-metadatos">
+                    <span class="mensaje-hora">16:42</span>
+                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-12 col-xl-4 d-flex justify-content-center">
+        <div class="mensaje-contenedor">
+            <div class="mensaje">
+                <div class="mensaje-contenido">
+                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
+                <div class="mensaje-metadatos">
+                    <span class="mensaje-hora">16:42</span>
+                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-12 col-xl-4 d-flex justify-content-center">
+        <div class="mensaje-contenedor">
+            <div class="mensaje">
+                <div class="mensaje-contenido">
+                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
+                <div class="mensaje-metadatos">
+                    <span class="mensaje-hora">16:42</span>
+                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-12 col-xl-4 d-flex justify-content-center">
+        <div class="mensaje-contenedor">
+            <div class="mensaje">
+                <div class="mensaje-contenido">
+                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo? ¡Hola! ¿Cómo estás? ¿Qué tal te va todo? ¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
+                <div class="mensaje-metadatos">
+                    <span class="mensaje-hora">16:42</span>
+                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row m-2">
+    <div class="col-8 col-lg-4">
+        {{cardLabel(content="Revision Datos")}}
+    </div>
+</div>
+
+<div class="shadow-box">
+    <div id="tabla-excel-container" class="contenedor-tabla-scroll"></div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-8 col-lg-4">
+        {{ button_hover(color="succes",content="Validar",type="submit",onclick="window.location.href = '/mensajes'")}}
+    </div>
+</div>
+
+
+<script defer src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
+
+
+{% endblock %}
