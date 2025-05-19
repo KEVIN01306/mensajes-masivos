@@ -3,6 +3,7 @@
 {% from 'components/navbar.component.html' import navbar %}
 {% from 'components/inputs/inputFile.component.html' import inputFile %}
 {% from 'components/cardLabel.component.html' import cardLabel %}
+{% from 'components/mensaje.component.html' import mensaje %}
 
 {% block title %}Validar Data{% endblock %}
 
@@ -12,63 +13,11 @@
 <h1>Configuracion</h1>
 <p>Verifica los datos y precionar empezar cuando estes listo</p>
 {% include 'layouts/alerts.html' %}
-<div class="row m-2">
+<div class="row m-2" id="contenedor-mensajes">
     <div class="col-12 m-2">
         {{cardLabel(content="Revision Mensajes")}}
     </div>
-    <div class="col-12 col-xl-4 d-flex justify-content-center">
-        <div class="mensaje-contenedor">
-            <div class="mensaje">
-                <div class="mensaje-contenido">
-                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
-                <div class="mensaje-metadatos">
-                    <span class="mensaje-hora">16:42</span>
-                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="col-12 col-xl-4 d-flex justify-content-center">
-        <div class="mensaje-contenedor">
-            <div class="mensaje">
-                <div class="mensaje-contenido">
-                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
-                <div class="mensaje-metadatos">
-                    <span class="mensaje-hora">16:42</span>
-                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="col-12 col-xl-4 d-flex justify-content-center">
-        <div class="mensaje-contenedor">
-            <div class="mensaje">
-                <div class="mensaje-contenido">
-                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
-                <div class="mensaje-metadatos">
-                    <span class="mensaje-hora">16:42</span>
-                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="col-12 col-xl-4 d-flex justify-content-center">
-        <div class="mensaje-contenedor">
-            <div class="mensaje">
-                <div class="mensaje-contenido">
-                <p class="mensaje-texto">¡Hola! ¿Cómo estás? ¿Qué tal te va todo? ¡Hola! ¿Cómo estás? ¿Qué tal te va todo? ¡Hola! ¿Cómo estás? ¿Qué tal te va todo?</p>
-                <div class="mensaje-metadatos">
-                    <span class="mensaje-hora">16:42</span>
-                    <span class="mensaje-estado leido"><i class="bi bi-check-all"></i></span>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
 </div>
 
 <div class="row m-2">
@@ -80,15 +29,38 @@
 <div class="shadow-box">
     <div id="tabla-excel-container" class="contenedor-tabla-scroll"></div>
 </div>
+<div class="input-text">
+
+</div>
+
+<div class="row mt-2">
+    <select id="content-opciones-columnas" class="form-select col-12 col-xl-4" aria-label="Default select example">
+        <option selected>selecciona la celda de numeros</option>
+    </select>
+</div>
 
 <div class="row mt-2">
     <div class="col-8 col-lg-4">
-        {{ button_hover(color="succes",content="Validar",type="submit",onclick="window.location.href = '/mensajes'")}}
+        {{ button_hover(color="succes",content="Validar",type="submit",onclick="sendMensaje()")}}
     </div>
 </div>
 
 
-<script defer src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
+<script defer type="module" src="{{ url_for('static', filename='js/mensajes/showMensajes.js') }}"></script>
+<script defer type="module" src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
+<script defer type="module" src="{{ url_for('static', filename='js/request/showHeaders.js') }}"></script>
+
+
+<script>
+
+
+    async function sendMensaje (){
+        const response = await fetch("/sendData/", {
+        method: "POST",
+        body: localStorage.getItem('mensajes')
+    });
+    }
+</script>
 
 
 {% endblock %}

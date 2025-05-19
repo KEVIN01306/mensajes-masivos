@@ -26,8 +26,8 @@
 .mensaje-texto {
   font-size: 16px;
   line-height: 1.3;
-  margin-bottom: 4px; /* Espacio entre el texto y los metadatos */
-  word-break: break-word; /* Evita desbordamientos de texto largo */
+  margin-bottom: 4px; 
+  word-break: break-word; 
 }
 
 .mensaje-metadatos {
@@ -57,4 +57,12 @@
 
 .mensaje-estado.leido {
   color: #4FC3F7; 
+}
+
+
+.contenedor-numero-mensaje{
+  background-color: var(--white-color);
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin: 5px;
 }

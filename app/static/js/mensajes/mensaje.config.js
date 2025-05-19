@@ -24,6 +24,13 @@ let mensajes = [];
         const col = document.createElement('div');
         col.className = 'col-12 col-xl-4 p-2 card-write-mensaje';
 
+        const containerNumnber = document.createElement('div')
+        containerNumnber.className = "contenedor-numero-mensaje"
+        const numerMensaje = document.createElement('p')
+        numerMensaje.textContent = "mensaje "+(index +1)
+        
+        containerNumnber.appendChild(numerMensaje)
+
         const textarea = document.createElement('textarea');
         textarea.className = 'shadow-box';
         textarea.setAttribute('data-index', index);
@@ -34,6 +41,7 @@ let mensajes = [];
             guardarEnLocalStorage();
         });
 
+        col.appendChild(containerNumnber)
         col.appendChild(textarea);
         container.appendChild(col);
     }
