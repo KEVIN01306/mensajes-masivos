@@ -17,3 +17,7 @@ def writeMensajes():
 @public_bp.route('/configuracionFinal')
 def configuracionFinal():
     return render_template('pages/configfinal.page.html')
+
+@public_bp.route('/reporte')
+def reporte():
+    return render_template('pages/reporte.page.html')
