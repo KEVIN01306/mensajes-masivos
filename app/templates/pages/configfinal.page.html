@@ -53,22 +53,11 @@
 
 <script>
 
+
     async function sendMensaje (){
-
-        const columnaNumerosSelect = document.getElementById('content-opciones-columnas');
-        const columnaNumerosValue = columnaNumerosSelect.value; 
-
-        const dataToSend = {
-            mensajes: localStorage.getItem('mensajes'),
-            data: localStorage.getItem('excelData')
-        };
-        window.location.href="/reporte"
         const response = await fetch("/sendData/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(dataToSend) 
+        method: "POST",
+        body: localStorage.getItem('mensajes')
     });
     }
 </script>
