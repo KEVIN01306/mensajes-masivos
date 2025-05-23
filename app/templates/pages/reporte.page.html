@@ -13,16 +13,10 @@
 <h1>Reporte</h1>
 <p>Mensajes enviados con exito</p>
 {% include 'layouts/alerts.html' %}
-<div class="row m-2" id="contenedor-mensajes">
-    <div class="col-12 m-2">
-        {{cardLabel(content="Revision Mensajes")}}
-    </div>
-
-</div>
 
 <div class="row m-2">
     <div class="col-8 col-lg-4">
-        {{cardLabel(content="Revision Datos")}}
+        {{cardLabel(content="Reporte Final")}}
     </div>
 </div>
 
@@ -34,9 +28,6 @@
 </div>
 
 
-
-
-<script defer type="module" src="{{ url_for('static', filename='js/mensajes/showMensajes.js') }}"></script>
 <script defer type="module" src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
 
 
