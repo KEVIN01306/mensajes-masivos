@@ -13,8 +13,28 @@ if (registro_columnas && registro_columnas.length > 0) {
 
     headers.forEach(header => {
     const option = document.createElement("option");
-    option.textContent = header;
+    option.textContent = `<{{ ${header} }}>`;
     contentOpciones.appendChild(option);
     console.log(header)
     });
 }
+
+
+const selectElement = document.getElementById('content-opciones-columnas');
+
+function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            console.log('Texto copiado al portapapeles:', text);
+        }).catch(function(err) {
+            console.error('Error al copiar el texto: ', err);
+        });
+    }
+
+
+    selectElement.addEventListener('change', function() {
+        const selectedValue = this.value; 
+        
+        if (selectedValue && selectedValue !== "selecciona una variable") {
+            copyToClipboard(selectedValue);
+        }
+    });

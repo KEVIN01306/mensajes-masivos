@@ -13,7 +13,7 @@ def prueba():
         data = request.get_json()
         
         
-        mensajes_recibidos,excel_data,columna_numeros = recepcion(data)
+        mensajes_recibidos,excel_data,columna_numeros,codigo_pais = recepcion(data)
         
         mensaje_index = 0
 
@@ -24,12 +24,9 @@ def prueba():
                 if phone_number is None:
                     print(f"Saltando fila: No se encontró número en la columna '{columna_numeros}' para: {row_data}")
                     continue 
-
                 phone_number = str(phone_number)
-
-                if not phone_number.startswith('502'): 
                     
-                    phone_number = '502' + phone_number 
+                phone_number = codigo_pais + phone_number 
 
                 current_message = mensajes_recibidos[mensaje_index].replace('\n', """
 """).strip()
@@ -73,7 +70,8 @@ def transformarSintaxis(row_data,current_message):
 def recepcion(data):
     mensajes_recibidos_str = data.get('mensajes', '[]')
     excel_data_str = data.get('data', '[]')
-    columna_numeros = "numeros" 
+    columna_numeros = "numeros"
+    codigo_pais = data.get('codigo')
 
     try:
         mensajes_recibidos = json.loads(mensajes_recibidos_str)
@@ -95,6 +93,7 @@ def recepcion(data):
     print(f"Mensajes recibidos (como lista): {mensajes_recibidos}")
     print(f"Datos de Excel recibidos: {excel_data}")
     print(f"Columna de números seleccionada: {columna_numeros}")
+    print(f"Codigo de pais : {codigo_pais}")
 
     
 
@@ -102,4 +101,4 @@ def recepcion(data):
         print("Error: No hay mensajes configurados para enviar.")
         return "Error: No hay mensajes configurados para enviar.", 400
     
-    return mensajes_recibidos,excel_data,columna_numeros
+    return mensajes_recibidos,excel_data,columna_numeros,codigo_pais

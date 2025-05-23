@@ -15,6 +15,11 @@
     {{ button_hover(color="succes", content="+", id="addTextareaBtn")}}
     {{ button_hover(color="warning", content="Eiminar Ultimo", onclick="borrarUltimoMensaje()")}}
     {{ button_hover(color="dangerous", content="Borrar Todo", onclick="borrarMensajes()")}}
+    <div class="row mt-2">
+        <select id="content-opciones-columnas" class="form-select col-12 col-xl-4" aria-label="Default select example">
+            <option selected>selecciona una variable</option>
+        </select>
+    </div>
 </div>
 
 <div class="row g-4 p-4 content-mensajes " id="textareaContainer">
@@ -25,7 +30,7 @@
 
 
 <script defer src="{{ url_for('static', filename='js/mensajes/mensaje.config.js') }}"></script>
-
+<script defer type="module" src="{{ url_for('static', filename='js/request/showHeaders.js') }}"></script>
 
 
 {% endblock %}

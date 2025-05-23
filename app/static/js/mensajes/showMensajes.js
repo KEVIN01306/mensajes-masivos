@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (mensajesContainer) {
           mensajes.forEach(textoMensaje => {
-            const tieneMultiplesSaltos = /\n{2,}/.test(textoMensaje);
-            const esLineaEnBlanco = /^\s*$/.test(textoMensaje);
 
             const colDiv = document.createElement('div');
             colDiv.classList.add('col-12', 'col-xl-4', 'd-flex', 'justify-content-center');
@@ -29,12 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
             mensajeTextoP.classList.add('mensaje-texto');
             mensajeTextoP.textContent = textoMensaje || 'Mensaje vacío';
 
-            if (tieneMultiplesSaltos) {
-              mensajeTextoP.classList.add('con-saltos-multiples'); // Agrega una clase para aplicar estilos específicos
-            }
-            if (esLineaEnBlanco) {
-              mensajeTextoP.classList.add('linea-blanco'); // Agrega una clase para indicar línea en blanco
-            }
+
+            mensajeTextoP.classList.add('con-saltos-multiples');
+
 
             const mensajeMetadatosDiv = document.createElement('div');
             mensajeMetadatosDiv.classList.add('mensaje-metadatos');

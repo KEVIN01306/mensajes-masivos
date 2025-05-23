@@ -1,26 +1,23 @@
 .mensaje-contenedor {
   display: flex;
-  justify-content: flex-start; /* Para mensajes propios, podrías usar 'flex-end' */
+  justify-content: flex-end; 
   margin-bottom: 8px;
-  width: 80%; /* Ajusta según necesites */
+  width: 100%; 
+  height: min-content;
 }
 
 .mensaje {
-  background-color: #DCF8C6; /* El clásico verde claro de WhatsApp */
+  background-color: #DCF8C6; 
   border-radius: 8px;
   padding: 8px 12px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  max-width: 80%; /* Evita que el mensaje ocupe todo el ancho */
+  max-width: 100%; 
 }
 
-/* Para mensajes de otros contactos, podrías tener una clase adicional */
-/*.mensaje.recibido {
-  background-color: #E0E0E0;
-}*/
 
 .mensaje-contenido {
   display: flex;
-  flex-direction: column; /* Para apilar texto y metadatos */
+  flex-direction: column; 
 }
 
 .mensaje-texto {
@@ -65,4 +62,12 @@
   padding: 4px 10px;
   border-radius: 10px;
   margin: 5px;
+}
+
+
+
+.con-saltos-multiples{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
 }

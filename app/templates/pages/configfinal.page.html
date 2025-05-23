@@ -33,34 +33,43 @@
 
 </div>
 
-<div class="row mt-2">
-    <select id="content-opciones-columnas" class="form-select col-12 col-xl-4" aria-label="Default select example">
-        <option selected>selecciona la celda de numeros</option>
-    </select>
+<div class="row m-2">
+    <div class="col-8 col-lg-4">
+        {{cardLabel(content="Pais de llegada")}}
+    </div>
 </div>
 
 <div class="row mt-2">
+    <select id="content-opciones-codigo-pais" class="form-select col-12 col-xl-4" aria-label="Default select example">
+    </select>
+</div>
+
+<div class="row m-4">
     <div class="col-8 col-lg-4">
         {{ button_hover(color="succes",content="Validar",type="submit",onclick="sendMensaje()")}}
     </div>
+
+    
 </div>
 
 
 <script defer type="module" src="{{ url_for('static', filename='js/mensajes/showMensajes.js') }}"></script>
 <script defer type="module" src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
-<script defer type="module" src="{{ url_for('static', filename='js/request/showHeaders.js') }}"></script>
+<script defer type="module" src="{{ url_for('static', filename='js/request/showCodigoPais.js') }}"></script>
 
 
 <script>
-
+    
     async function sendMensaje (){
 
-        const columnaNumerosSelect = document.getElementById('content-opciones-columnas');
+        const columnaNumerosSelect = document.getElementById('content-opciones-codigo-pais');
         const columnaNumerosValue = columnaNumerosSelect.value; 
+
 
         const dataToSend = {
             mensajes: localStorage.getItem('mensajes'),
-            data: localStorage.getItem('excelData')
+            data: localStorage.getItem('excelData'),
+            codigo: columnaNumerosValue
         };
         window.location.href="/reporte"
         const response = await fetch("/sendData/", {
