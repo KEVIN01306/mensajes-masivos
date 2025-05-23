@@ -13,7 +13,7 @@ def prueba():
         data = request.get_json()
         
         
-        mensajes_recibidos,excel_data,columna_numeros,codigo_pais = recepcion(data)
+        mensajes_recibidos,excel_data,columna_numeros,codigo_pais,tiempo_llegada,tiempo_envio = recepcion(data)
         
         mensaje_index = 0
 
@@ -40,10 +40,10 @@ def prueba():
                 print(f"Abriendo WhatsApp para: {phone_number} con mensaje: {current_message[:30]}...") 
                 webbrowser.open(whatsapp_url)
                 
-                time.sleep(11) 
+                time.sleep(tiempo_llegada) 
                 
                 pyautogui.press('enter') 
-                time.sleep(3) 
+                time.sleep(tiempo_envio) 
                 
                 pyautogui.hotkey('ctrl', 'w')
                 pyautogui.press('enter') 
@@ -72,6 +72,8 @@ def recepcion(data):
     excel_data_str = data.get('data', '[]')
     columna_numeros = "numeros"
     codigo_pais = data.get('codigo')
+    tiempo_llegada = int(data.get('Tllegada'))
+    tiempo_envio = int(data.get('Tenvio'))
 
     try:
         mensajes_recibidos = json.loads(mensajes_recibidos_str)
@@ -94,6 +96,7 @@ def recepcion(data):
     print(f"Datos de Excel recibidos: {excel_data}")
     print(f"Columna de números seleccionada: {columna_numeros}")
     print(f"Codigo de pais : {codigo_pais}")
+    print("Tiempos", tiempo_llegada, tiempo_envio)
 
     
 
@@ -101,4 +104,4 @@ def recepcion(data):
         print("Error: No hay mensajes configurados para enviar.")
         return "Error: No hay mensajes configurados para enviar.", 400
     
-    return mensajes_recibidos,excel_data,columna_numeros,codigo_pais
+    return mensajes_recibidos,excel_data,columna_numeros,codigo_pais,tiempo_llegada,tiempo_envio
