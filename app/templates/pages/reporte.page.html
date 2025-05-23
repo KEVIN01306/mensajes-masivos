@@ -20,15 +20,90 @@
     </div>
 </div>
 
+<div class="row m-4">
+    <div class="col-8 col-lg-4">
+        {{ button_hover(color="succes",content="Parar envio",type="submit",onclick="pararEnvio()", id="Parar y Ver Reporte")}}
+    </div>
+</div>
+
+
+
 <div class="shadow-box">
     <div id="tabla-excel-container" class="contenedor-tabla-scroll"></div>
 </div>
-<div class="input-text">
-
-</div>
 
 
-<script defer type="module" src="{{ url_for('static', filename='js/request/showData.js') }}"></script>
 
+
+
+
+<script>
+
+const verR = document.getElementById("mostrar");
+const pararR = document.getElementById("parar");
+
+function bloquerBotones(){
+    verR.style.pointerEvents = 'none';
+    pararR.style.pointerEvents = 'none';
+}
+
+function pararEnvio() {
+    fetch("/stopSending/", { method: "POST" })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Envio detenido:", data);
+            localStorage.setItem("reporteFinal", JSON.stringify(data))
+            // Aquí puedes mostrar `data.resultados` en la tabla
+            mostrarTablaResultados();
+        })
+        .catch(err => console.error("Error al detener:", err));
+}
+
+function mostrarTablaResultados() {
+    const data = JSON.parse(localStorage.getItem("reporteFinal"));
+
+    console.log(data)
+
+  if (!data || !data.resultados || data.resultados.length === 0) {
+    document.getElementById("tabla-excel-container").textContent = "No hay datos disponibles.";
+  } else {
+    const registros = data.resultados;
+    const headers = Object.keys(registros[0]);
+
+    const table = document.createElement("table");
+    table.className = "tabla-estilo-excel"; 
+
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+
+    headers.forEach(header => {
+      const th = document.createElement("th");
+      th.textContent = header;
+      headerRow.appendChild(th);
+    });
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement("tbody");
+    registros.forEach(row => {
+      const tr = document.createElement("tr");
+      headers.forEach(header => {
+        const td = document.createElement("td");
+        td.textContent = row[header] ?? "";
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    document.getElementById("tabla-excel-container").appendChild(table);
+  }
+
+  bloquerBotones()
+}
+
+
+</script>
 
 {% endblock %}

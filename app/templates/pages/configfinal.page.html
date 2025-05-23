@@ -88,6 +88,8 @@
         const inputTiempoEnvio = document.getElementById('input-envio');
         const tiempoValueEnvio = inputTiempoEnvio.value;
 
+        
+
         const dataToSend = {
             mensajes: localStorage.getItem('mensajes'),
             data: localStorage.getItem('excelData'),
@@ -103,6 +105,13 @@
             },
             body: JSON.stringify(dataToSend) 
     });
+        if (!response.ok) {
+            throw new Error("Error en la respuesta del servidor");
+        }
+
+        const resultados = await response.json();
+        localStorage.setItem("reporteFinal", JSON.stringify(resultados));
+
     }
 </script>
 
