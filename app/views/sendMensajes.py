@@ -31,7 +31,8 @@ def prueba():
                     
                     phone_number = '502' + phone_number 
 
-                current_message = mensajes_recibidos[mensaje_index].replace('\n', '').strip()
+                current_message = mensajes_recibidos[mensaje_index].replace('\n', """
+""").strip()
 
                     
                 encoded_message = quote_plus(transformarSintaxis(row_data,current_message)) 
