@@ -7,7 +7,7 @@ const opcionesDeCeldas = [
     { value: '505', nombreMostrar: 'Costa Rica' },
     { value: '506', nombreMostrar: 'Nicaragua' },
     { value: '507', nombreMostrar: 'Panamá' },
-    
+    { value: '52', nombreMostrar: 'México' },
 ];
 
 opcionesDeCeldas.forEach((opcionData,index )=> {

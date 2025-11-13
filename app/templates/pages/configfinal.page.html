@@ -51,7 +51,8 @@
 </div>
 
 <div class="row mt-2">
-        <input type="number" class="form-control" id="input-llegada" value="12" placeholder="Tiempo" aria-label="tiempo-llegada" aria-describedby="basic-addon1">
+    <input type="number" class="form-control" id="input-llegada" value="12" placeholder="Tiempo"
+        aria-label="tiempo-llegada" aria-describedby="basic-addon1">
 </div>
 
 <div class="row m-2">
@@ -60,7 +61,8 @@
     </div>
 </div>
 <div class="row mt-2">
-        <input type="number" class="form-control" id="input-envio" value="3"  placeholder="Tiempo" aria-label="tiempo-envio" aria-describedby="basic-addon1">
+    <input type="number" class="form-control" id="input-envio" value="3" placeholder="Tiempo" aria-label="tiempo-envio"
+        aria-describedby="basic-addon1">
 </div>
 
 <div class="row m-4">
@@ -68,7 +70,7 @@
         {{ button_hover(color="succes",content="Validar",type="submit",onclick="sendMensaje()")}}
     </div>
 
-    
+
 </div>
 
 
@@ -78,33 +80,33 @@
 
 
 <script>
-    
-    async function sendMensaje (){
 
-        const columnaNumerosSelect = document.getElementById('content-opciones-codigo-pais');
-        const columnaNumerosValue = columnaNumerosSelect.value; 
+    async function sendMensaje() {
+
+        const columnaNumerosSelect = document.getElementById('content-opciones-codigo-pais');
+        const columnaNumerosValue = columnaNumerosSelect.value;
         const inputTiempoLlegada = document.getElementById('input-llegada');
         const tiempoValueLlegada = inputTiempoLlegada.value;
         const inputTiempoEnvio = document.getElementById('input-envio');
         const tiempoValueEnvio = inputTiempoEnvio.value;
 
-        
 
-        const dataToSend = {
-            mensajes: localStorage.getItem('mensajes'),
-            data: localStorage.getItem('excelData'),
+
+        const dataToSend = {
+            mensajes: localStorage.getItem('mensajes'),
+            data: localStorage.getItem('excelData'),
             codigo: columnaNumerosValue,
             Tllegada: tiempoValueLlegada,
             Tenvio: tiempoValueEnvio
-        };
-        window.location.href="/reporte"
+        };
+        window.location.href = "/reporte"
         const response = await fetch("/sendData/", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(dataToSend) 
-    });
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToSend)
+        });
         if (!response.ok) {
             throw new Error("Error en la respuesta del servidor");
         }
